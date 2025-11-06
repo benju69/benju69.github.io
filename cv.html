@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Benjamin GONIN - Ingénieur Android Senior</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.95em;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.6em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-weight: 600;
+        }
+        
+        .about {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #e0e0e0;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .job-title {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .duration {
+            color: #667eea;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .company {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            color: #555;
+            margin-bottom: 8px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        
+        ul li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .skill-category p {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .interest-tag {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .header {
+                background: #667eea;
+                color: white;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .header .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+            
+            .duration {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Benjamin GONIN</h1>
+            <div class="subtitle">Ingénieur Android Senior | Kotlin & Compose</div>
+            <div class="contact-info">
+                <span>📞 <a href="tel:+33606534550">+33 6 06 53 45 50</a></span>
+                <span>📧 <a href="mailto:begonin@gmail.com">begonin@gmail.com</a></span>
+                <span>🌐 <a href="https://benju.fr" target="_blank">benju.fr</a></span>
+                <span>📍 Villemoisson-sur-Orge (91)</span>
+                <span>🚗 Permis B</span>
+            </div>
+        </div>
+        
+        <div class="content">
+            <section class="section">
+                <h2 class="section-title">À propos</h2>
+                <p class="about">
+                    Expert Android avec 10+ ans d'expérience en développement Kotlin/Compose et architectures modernes. Organisateur PAUG et Android Makers, passionné par les bonnes pratiques et le partage de connaissances au sein de la communauté.
+                </p>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">Expérience Professionnelle</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Senior Android Developer</div>
+                        <div class="duration">Octobre 2019 - Présent</div>
+                    </div>
+                    <div class="company">Lalalab | Paris 10ème et Remote</div>
+                    <p class="description">L'appli de référence pour imprimer toutes vos photos depuis votre smartphone</p>
+                    <ul>
+                        <li>Migration complète Java vers Kotlin (100% du codebase), Architecture MVVM</li>
+                        <li>Développement et maintenance des applications Android Lalalab, Photoweb et Fnac Photo</li>
+                        <li>Implémentation de nouvelles fonctionnalités, optimisation des performances</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Développeur Android Kotlin</div>
+                        <div class="duration">Octobre 2017 - Octobre 2019</div>
+                    </div>
+                    <div class="company">SeLoger | Paris 18ème</div>
+                    <p class="description">Portail leader d'annonces immobilières en France</p>
+                    <ul>
+                        <li>Développement de l'application SL6 entièrement en Kotlin</li>
+                        <li>Architecture MVVM moderne</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Développeur Android</div>
+                        <div class="duration">Août 2015 - Juillet 2017</div>
+                    </div>
+                    <div class="company">Kartable | Paris 2ème</div>
+                    <p class="description">Plateforme éducative française pour collégiens et lycéens</p>
+                    <ul>
+                        <li>Développement from scratch de l'application Kartable Android</li>
+                        <li>Maintenance et ajout de fonctionnalités (cours, exercices, évaluations, mode hors ligne, abonnement, paramètres, redesign, migration API)</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Développeur Android</div>
+                        <div class="duration">Février 2014 - Juin 2015</div>
+                    </div>
+                    <div class="company">Valtech | Paris 7ème</div>
+                    <p class="description">Projets clients variés : L'Express, Pacifica, ADP, Louis Vuitton Publishing et applications internes</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Développeur Android</div>
+                        <div class="duration">Novembre 2013 - Janvier 2014</div>
+                    </div>
+                    <div class="company">Isobar | Courbevoie</div>
+                    <p class="description">Applications Relay Kiosque et Galeries Lafayette</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Développeur Android</div>
+                        <div class="duration">Février 2012 - Novembre 2013</div>
+                    </div>
+                    <div class="company">Abvent R&D | Paris 9ème</div>
+                    <p class="description">En alternance puis CDD</p>
+                    <ul>
+                        <li>iVisit 3D : application permettant d'afficher des panoramas en 3D</li>
+                        <li>Versailles 3D : affichage de panoramas 3D du château de Versailles à différentes époques</li>
+                        <li>Agence VU : Application de reportages photo</li>
+                        <li>Développement web sur le nouveau site Artlantis</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">Compétences Techniques</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Android</h3>
+                        <p>Kotlin, Jetpack Compose, KMP/CMP, MVVM, Clean Architecture, RecyclerView, Retrofit, Apollo GraphQL, Room, Coroutines, Flow, Dagger</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Services & APIs</h3>
+                        <p>Firebase (Crashlytics, Analytics, Remote Config), Google Play Services, In-App Billing, Google Maps, Facebook SDK, outils d'analytics, REST APIs</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>CI/CD & Outils</h3>
+                        <p>Gradle, GitLab, GitHub Actions, Bitrise, Git, Android Studio</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Backend & Web</h3>
+                        <p>Node.js, Strapi, PHP/MySQL, HTML/CSS, JavaScript, Python</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Autres Technologies</h3>
+                        <p>OpenGL, Unity 3D, Blender, Qt, C++, C#, Swift et Objective-C (bases)</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Langues</h3>
+                        <p><strong>Anglais :</strong> Bon niveau écrit, lu et parlé (870 TOEIC)<br><strong>Espagnol :</strong> Notions (lu et écrit)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">Formation</h2>
+                
+                <div class="education-item">
+                    <div class="experience-header">
+                        <div class="job-title">Master of Science - Ingénierie de l'Image et des Jeux Vidéo</div>
+                        <div class="duration">2013</div>
+                    </div>
+                    <div class="company">ESGI, Paris</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="experience-header">
+                        <div class="job-title">Licence Professionnelle SIL Image et Son</div>
+                        <div class="duration">2011</div>
+                    </div>
+                    <div class="company">Parcours 3D temps réel et réalité virtuelle - IUT du Puy-en-Velay, Université d'Auvergne Clermont 1</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="experience-header">
+                        <div class="job-title">DUT Informatique - Orientation Imagerie Numérique</div>
+                        <div class="duration">2010</div>
+                    </div>
+                    <div class="company">IUT du Puy-en-Velay, Université d'Auvergne Clermont 1</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="experience-header">
+                        <div class="job-title">Baccalauréat S - Option Sciences de l'Ingénieur</div>
+                        <div class="duration">2008</div>
+                    </div>
+                    <div class="company">Lycée Blaise Pascal, Charbonnières-les-Bains</div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">Centres d'intérêts</h2>
+                <div class="interests">
+                    <div class="interest-tag">🎤 Organisateur PAUG & Android Makers</div>
+                    <div class="interest-tag">🏀 Basketball (9 ans en club)</div>
+                    <div class="interest-tag">⛷️ Ski</div>
+                    <div class="interest-tag">💪 Sport en salle</div>
+                    <div class="interest-tag">🎵 Musique</div>
+                    <div class="interest-tag">📸 Photographie</div>
+                    <div class="interest-tag">🎮 Jeux Vidéo</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
