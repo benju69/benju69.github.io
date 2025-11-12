@@ -215,10 +215,67 @@
                 margin-top: 5px;
             }
         }
+        
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .language-button {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .language-button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media print {
+            .language-toggle {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .language-toggle {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .language-button {
+                padding: 8px 16px;
+                font-size: 0.85em;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="language-toggle">
+        <button class="language-button" onclick="toggleLanguage()">
+            <span id="lang-button-text">See in English</span>
+        </button>
+    </div>
+    
     <div class="container">
+        <!-- French Version -->
+        <div id="content-fr" class="cv-content">
         <div class="header">
             <h1>Benjamin GONIN</h1>
             <div class="subtitle">Ingénieur Android Senior | Kotlin & Compose</div>
@@ -400,6 +457,216 @@
                 </div>
             </section>
         </div>
+        </div>
+        <!-- End French Version -->
+        
+        <!-- English Version -->
+        <div id="content-en" class="cv-content hidden">
+        <div class="header">
+            <h1>Benjamin GONIN</h1>
+            <div class="subtitle">Senior Android Engineer | Kotlin & Compose</div>
+            <div class="contact-info">
+                <span>📞 <a href="tel:+33606534550">+33 6 06 53 45 50</a></span>
+                <span>📧 <a href="mailto:begonin@gmail.com">begonin@gmail.com</a></span>
+                <span>🌐 <a href="https://benju.fr" target="_blank">benju.fr</a></span>
+                <span>📍 Villemoisson-sur-Orge (91)</span>
+                <span>🚗 Driver's License</span>
+            </div>
+        </div>
+        
+        <div class="content">
+            <section class="section">
+                <h2 class="section-title">About</h2>
+                <p class="about">
+                    Android expert with 10+ years of experience in Kotlin/Compose development and modern architectures. PAUG and Android Makers organizer, passionate about best practices and knowledge sharing within the community.
+                </p>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Senior Android Developer</div>
+                        <div class="duration">October 2019 - Present</div>
+                    </div>
+                    <div class="company">Lalalab | Paris 10th & Remote</div>
+                    <p class="description">The reference app for printing all your photos from your smartphone</p>
+                    <ul>
+                        <li>Complete Java to Kotlin migration (100% of codebase), MVVM Architecture</li>
+                        <li>Development and maintenance of Lalalab, Photoweb and Fnac Photo Android applications</li>
+                        <li>Implementation of new features, performance optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Kotlin Android Developer</div>
+                        <div class="duration">October 2017 - October 2019</div>
+                    </div>
+                    <div class="company">SeLoger | Paris 18th</div>
+                    <p class="description">Leading real estate listings portal in France</p>
+                    <ul>
+                        <li>Development of SL6 application entirely in Kotlin</li>
+                        <li>Modern MVVM architecture</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Android Developer</div>
+                        <div class="duration">August 2015 - July 2017</div>
+                    </div>
+                    <div class="company">Kartable | Paris 2nd</div>
+                    <p class="description">French educational platform for middle and high school students</p>
+                    <ul>
+                        <li>Developed Kartable Android application from scratch</li>
+                        <li>Maintenance and feature additions (lessons, exercises, assessments, offline mode, subscription, settings, redesign, API migration)</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Android Developer</div>
+                        <div class="duration">February 2014 - June 2015</div>
+                    </div>
+                    <div class="company">Valtech | Paris 7th</div>
+                    <p class="description">Various client projects: L'Express, Pacifica, ADP, Louis Vuitton Publishing and internal applications</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Android Developer</div>
+                        <div class="duration">November 2013 - January 2014</div>
+                    </div>
+                    <div class="company">Isobar | Courbevoie</div>
+                    <p class="description">Relay Kiosque and Galeries Lafayette applications</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Android Developer</div>
+                        <div class="duration">February 2012 - November 2013</div>
+                    </div>
+                    <div class="company">Abvent R&D | Paris 9th</div>
+                    <p class="description">Internship then fixed-term contract</p>
+                    <ul>
+                        <li>iVisit 3D: application for displaying 3D panoramas</li>
+                        <li>Versailles 3D: display of 3D panoramas of the Palace of Versailles in different eras</li>
+                        <li>Agence VU: Photo reportage application</li>
+                        <li>Web development on the new Artlantis website</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Android</h3>
+                        <p>Kotlin, Jetpack Compose, KMP/CMP, MVVM, Clean Architecture, RecyclerView, Retrofit, Apollo GraphQL, Room, Coroutines, Flow, Dagger</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Services & APIs</h3>
+                        <p>Firebase (Crashlytics, Analytics, Remote Config), Google Play Services, In-App Billing, Google Maps, Facebook SDK, analytics tools, REST APIs</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>CI/CD & Tools</h3>
+                        <p>Gradle, GitLab, GitHub Actions, Bitrise, Git, Android Studio</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Backend & Web</h3>
+                        <p>Node.js, Strapi, PHP/MySQL, HTML/CSS, JavaScript, Python</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Other Technologies</h3>
+                        <p>OpenGL, Unity 3D, Blender, Qt, C++, C#, Swift and Objective-C (basics)</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <p><strong>English:</strong> Good level written, read and spoken (870 TOEIC)<br><strong>Spanish:</strong> Basic knowledge (read and written)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                
+                <div class="education-item">
+                    <div class="experience-header">
+                        <div class="job-title">Master of Science - Image and Video Game Engineering</div>
+                        <div class="duration">2013</div>
+                    </div>
+                    <div class="company">ESGI, Paris</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="experience-header">
+                        <div class="job-title">Professional Bachelor's Degree SIL Image and Sound</div>
+                        <div class="duration">2011</div>
+                    </div>
+                    <div class="company">Real-time 3D and Virtual Reality Track - IUT du Puy-en-Velay, University of Auvergne Clermont 1</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="experience-header">
+                        <div class="job-title">DUT Computer Science - Digital Imaging Orientation</div>
+                        <div class="duration">2010</div>
+                    </div>
+                    <div class="company">IUT du Puy-en-Velay, University of Auvergne Clermont 1</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="experience-header">
+                        <div class="job-title">Baccalauréat S - Engineering Sciences Option</div>
+                        <div class="duration">2008</div>
+                    </div>
+                    <div class="company">Lycée Blaise Pascal, Charbonnières-les-Bains</div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">Interests</h2>
+                <div class="interests">
+                    <div class="interest-tag">🎤 PAUG & Android Makers Organizer</div>
+                    <div class="interest-tag">🏀 Basketball (9 years in club)</div>
+                    <div class="interest-tag">⛷️ Skiing</div>
+                    <div class="interest-tag">💪 Gym</div>
+                    <div class="interest-tag">🎵 Music</div>
+                    <div class="interest-tag">📸 Photography</div>
+                    <div class="interest-tag">🎮 Video Games</div>
+                </div>
+            </section>
+        </div>
+        </div>
+        <!-- End English Version -->
     </div>
+    
+    <script>
+        function toggleLanguage() {
+            const frContent = document.getElementById('content-fr');
+            const enContent = document.getElementById('content-en');
+            const buttonText = document.getElementById('lang-button-text');
+            
+            if (frContent.classList.contains('hidden')) {
+                // Currently showing English, switch to French
+                frContent.classList.remove('hidden');
+                enContent.classList.add('hidden');
+                buttonText.textContent = 'See in English';
+                document.documentElement.lang = 'fr';
+            } else {
+                // Currently showing French, switch to English
+                frContent.classList.add('hidden');
+                enContent.classList.remove('hidden');
+                buttonText.textContent = 'Voir en français';
+                document.documentElement.lang = 'en';
+            }
+        }
+    </script>
 </body>
 </html>
