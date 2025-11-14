@@ -1,12 +1,30 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Benjamin Gonin</title>
+    <title>Benjamin Gonin - Android Developer & Software Engineer</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="benju site">
+    <meta name="description" content="Benjamin Gonin - Senior Android Developer specialized in Kotlin & Compose. PAUG & Android Makers organizer, passionate about mobile development and community.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="theme-color" content="#FFA138">
+    <meta name="author" content="Benjamin Gonin">
+    <meta name="keywords" content="Android Developer, Kotlin, Jetpack Compose, Mobile Development, Software Engineer">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://benju.fr/">
+    <meta property="og:title" content="Benjamin Gonin - Android Developer & Software Engineer">
+    <meta property="og:description" content="Senior Android Developer specialized in Kotlin & Compose. PAUG & Android Makers organizer.">
+    <meta property="og:image" content="https://benju.fr/images/avatar.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@_benju_">
+    <meta name="twitter:creator" content="@_benju_">
+    <meta name="twitter:title" content="Benjamin Gonin - Android Developer">
+    <meta name="twitter:description" content="Senior Android Developer specialized in Kotlin & Compose">
+    <meta name="twitter:image" content="https://benju.fr/images/avatar.png">
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -22,52 +40,66 @@
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
     <link rel="shortcut icon" href="images/favicon.png">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Preconnect to external resources for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://code.getmdl.io">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-orange.min.css">
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Google Analytics -->
+    <!-- Google Analytics - GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39055648-2"></script>
     <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-39055648-2', 'auto');
-    ga('send', 'pageview');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-39055648-2');
     </script>
     <!-- End Google Analytics -->
   </head>
   
   <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
-      <main class="mdl-layout__content">
+      <main class="mdl-layout__content" id="main-content" role="main">
         <div id="content">
           
           <h1>Benjamin Gonin</h1>
+          <p class="subtitle">Senior Android Developer | Kotlin & Compose Expert</p>
           
-          <ul class="list-inline">
-            <li><a href="cv.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent">CV</a></li>
-            <li><a href="https://twitter.com/_benju_" target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent">Twitter</a></li>
-            <li><a href="https://www.linkedin.com/in/benjamingonin/" target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent">Linkedin</a></li>
-            <li><a href="https://github.com/benju69" target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent">GitHub</a></li>
-            <li><a href="https://medium.com/@_benju_" target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent">Medium</a></li>
-            <li><a href="https://play.google.com/store/apps/developer?id=benju" target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent">Play store</a></li>
-            <li><a href="https://stackoverflow.com/users/1895025/benju" target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent">Stack Overflow</a></li>
-            <li><a href="https://electricblackhole.fanlink.to/cMVH" target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent">My music</a></li>
-          </ul>
+          <nav aria-label="Social media and professional links">
+            <ul class="list-inline">
+              <li><a href="cv.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent" aria-label="View CV">CV</a></li>
+              <li><a href="https://twitter.com/_benju_" target="_blank" rel="noopener noreferrer" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent" aria-label="Follow on Twitter">Twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjamingonin/" target="_blank" rel="noopener noreferrer" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent" aria-label="Connect on LinkedIn">Linkedin</a></li>
+              <li><a href="https://github.com/benju69" target="_blank" rel="noopener noreferrer" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent" aria-label="View GitHub profile">GitHub</a></li>
+              <li><a href="https://medium.com/@_benju_" target="_blank" rel="noopener noreferrer" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent" aria-label="Read articles on Medium">Medium</a></li>
+              <li><a href="https://play.google.com/store/apps/developer?id=benju" target="_blank" rel="noopener noreferrer" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent" aria-label="View apps on Play Store">Play store</a></li>
+              <li><a href="https://stackoverflow.com/users/1895025/benju" target="_blank" rel="noopener noreferrer" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent" aria-label="View Stack Overflow profile">Stack Overflow</a></li>
+              <li><a href="https://electricblackhole.fanlink.to/cMVH" target="_blank" rel="noopener noreferrer" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent" aria-label="Listen to music">My music</a></li>
+            </ul>
+          </nav>
           
         </div>
-        <a href="mailto:begonin@gmail.com">
-          <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" id="contact">
-            <i class="material-icons mdl-color-text--white" role="presentation">message</i>
-            <span class="visuallyhidden">message</span>
+        <a href="mailto:begonin@gmail.com" aria-label="Send email">
+          <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" id="contact" aria-label="Contact via email">
+            <i class="material-icons mdl-color-text--white" role="presentation" aria-hidden="true">message</i>
+            <span class="visuallyhidden">Send message</span>
           </button>
         </a>
       </main>
     </div>
+    
+    <!-- Material Design Lite JavaScript -->
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   </body>
 </html>
