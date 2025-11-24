@@ -42,5 +42,15 @@ After DNS is configured:
 - `terms-of-use.html` - Terms of use
 - `README.md` - This file
 
+## Updating App Store Links
+When the app is published, update the download links in `index.html`:
+
+1. Find the "app-badges" section (around line 520)
+2. Replace `href="#contact"` with actual store URLs:
+   - **App Store**: `https://apps.apple.com/app/omasa` (or your actual App Store URL)
+   - **Google Play**: `https://play.google.com/store/apps/details?id=YOUR_APP_ID`
+3. Update the aria-labels to remove "- Coming Soon"
+4. Change "Coming soon to iOS and Android" to "Available on iOS and Android"
+
 ## Contact
 For questions about the Omasa app: omasa.contact@gmail.com
