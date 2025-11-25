@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Interview Cheat Sheet</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 0.5cm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            line-height: 1.3;
+            color: #333;
+            background: white;
+            padding: 0.5cm;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        h1 {
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #1976D2;
+            border-bottom: 2px solid #1976D2;
+            padding-bottom: 4px;
+        }
+        
+        h2 {
+            font-size: 11px;
+            color: #1976D2;
+            margin-bottom: 3px;
+            border-bottom: 1px solid #1976D2;
+            padding-bottom: 2px;
+        }
+        
+        h3 {
+            font-size: 10px;
+            color: #424242;
+            margin: 4px 0 2px 0;
+            font-weight: bold;
+        }
+        
+        .section {
+            background: #f8f9fa;
+            padding: 6px;
+            border-radius: 4px;
+            border-left: 3px solid #1976D2;
+        }
+        
+        code {
+            background: #e3f2fd;
+            padding: 1px 3px;
+            border-radius: 2px;
+            font-family: Courier New, monospace;
+            font-size: 8px;
+        }
+        
+        .code-block {
+            background: #f3fbff;
+            color: #3b63ac;
+            padding: 4px;
+            border-radius: 3px;
+            font-family: Courier New, monospace;
+            font-size: 7px;
+            line-height: 1.2;
+            margin: 3px 0;
+            white-space: pre;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8px;
+            margin: 3px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 2px 4px;
+            text-align: left;
+        }
+        
+        th {
+            background: #1976D2;
+            color: white;
+            font-weight: bold;
+        }
+        
+        strong {
+            color: #1976D2;
+        }
+        
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>🎯 Android Interview Cheat Sheet - Staff/Senior Mobile Engineer</h2>
+    
+    <div class="container">
+        <!-- COLUMN 1 -->
+        <div class="column">
+            <div class="section">
+                <h2>Core Android</h2>
+                <strong>Activity Lifecycle:</strong> onCreate → onStart → onResume → onPause → onStop → onDestroy<br><br>
+                <strong>4 Components:</strong> Activities, Services, Broadcast Receivers, Content Providers<br><br>
+                <strong>Parcelable vs Serializable:</strong> Parcelable faster (Android-optimized), Serializable easier (reflection)<br><br>
+                <strong>Coroutines:</strong> Lightweight threads, structured concurrency. Use <code>viewModelScope.launch</code><br><br>
+                <strong>Flow vs LiveData:</strong> Flow = cold stream, rich operators. LiveData = hot, lifecycle-aware<br><br>
+                <strong>Memory Leaks:</strong> Avoid static Activity refs, clear listeners, use lifecycle-aware components
+            </div>
+            
+            <div class="section">
+                <h2>MVVM Architecture</h2>
+                <strong>Flow:</strong> View (UI) → ViewModel (logic) → Model (data)<br>
+                • View observes ViewModel via StateFlow/LiveData<br>
+                • ViewModel never references View<br>
+                • Repository = single source of truth<br>
+                
+                <div class="code-block">class UserViewModel(repo: UserRepository) {
+  private val _state = MutableStateFlow(Loading)
+  val state = _state.asStateFlow()
+  
+  fun load(id: String) = viewModelScope.launch {
+    _state.value = try {
+      Success(repo.getUser(id))
+    } catch(e: Exception) { Error(e) }
+  }
+}</div>
+            </div>
+            
+            <div class="section">
+                <h2>Clean Architecture</h2>
+                <strong>Layers:</strong> Presentation → Domain → Data<br>
+                <strong>Rule:</strong> Outer depends on inner, never reverse<br><br>
+                • <strong>Presentation:</strong> UI, ViewModel<br>
+                • <strong>Domain:</strong> UseCases, Business Logic<br>
+                • <strong>Data:</strong> Repository, API, DB<br>
+                
+                <h3>Repository Pattern</h3>
+                <div class="code-block">class UserRepo(api: Api, dao: Dao) {
+  suspend fun getUser(id: String): User {
+    dao.getUser(id)?.let { return it }
+    val user = api.getUser(id)
+    dao.insert(user)
+    return user
+  }
+}</div>
+            </div>
+            
+            <div class="section">
+                <h2>Dependency Injection</h2>
+                <strong>Benefits:</strong> Testability, decoupling, flexibility<br><br>
+                <strong>Hilt:</strong> <code>@HiltViewModel</code>, <code>@Inject constructor</code>, <code>@Module</code>, <code>@Singleton</code>
+            </div>
+        </div>
+        
+        <!-- COLUMN 2 -->
+        <div class="column">
+            <div class="section">
+                <h2>Kotlin Multiplatform (KMP)</h2>
+                <strong>Share:</strong> Business logic, repos, models, network, DB (60-80%)<br>
+                <strong>Platform:</strong> UI (Compose/SwiftUI), platform APIs<br>
+                
+                <h3>6 Key Advantages</h3>
+                1. <strong>Code Reuse</strong> - Write once, run everywhere<br>
+                2. <strong>Type Safety</strong> - Shared models, compile-time checks<br>
+                3. <strong>Gradual Adoption</strong> - Incremental integration<br>
+                4. <strong>Native Performance</strong> - No bridge overhead<br>
+                5. <strong>Native UI</strong> - Real Compose/SwiftUI<br>
+                6. <strong>Single Team</strong> - Devs work on both platforms<br>
+                
+                <h3>Expect/Actual Pattern</h3>
+                <div class="code-block">// Common
+expect class Platform() { val name: String }
+
+// Android
+actual class Platform {
+  actual val name = "Android"
+}
+
+// iOS
+actual class Platform {
+  actual val name = "iOS"
+}</div>
+                
+                <h3>Architecture</h3>
+                Platform UI → Domain (Shared) → Data (Shared: Ktor, SQLDelight)<br><br>
+                
+                <h3>Libraries</h3>
+                <strong>Network:</strong> Ktor &nbsp; <strong>DB:</strong> SQLDelight, Realm<br>
+                <strong>Serialization:</strong> kotlinx.serialization &nbsp; <strong>DI:</strong> Koin
+            </div>
+            
+            <div class="section">
+                <h2>KMP vs Flutter vs React Native</h2>
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>KMP</th>
+                        <th>Flutter</th>
+                        <th>RN</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Language</strong></td>
+                        <td>Kotlin</td>
+                        <td>Dart</td>
+                        <td>JavaScript</td>
+                    </tr>
+                    <tr>
+                        <td><strong>UI</strong></td>
+                        <td>Native</td>
+                        <td>Custom</td>
+                        <td>Native</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Performance</strong></td>
+                        <td>Native</td>
+                        <td>Near-native</td>
+                        <td>Bridge</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Code Share</strong></td>
+                        <td>60-80%</td>
+                        <td>100%</td>
+                        <td>70-90%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Best For</strong></td>
+                        <td>Kotlin teams</td>
+                        <td>New apps</td>
+                        <td>JS teams</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="section">
+                <h2>Multi-Module Architecture</h2>
+                <strong>Benefits:</strong> Faster builds, clear boundaries, better testing<br><br>
+                <strong>Structure:</strong> app → feature-modules → core-modules
+            </div>
+        </div>
+        
+        <!-- COLUMN 3 -->
+        <div class="column">
+            <div class="section">
+                <h2>Performance Optimization</h2>
+                <strong>Startup:</strong> Lazy init, StrictMode, App Startup library<br><br>
+                <strong>Runtime:</strong> Lazy loading, efficient RecyclerView, Coil, baseline profiles<br><br>
+                <strong>Build:</strong> Gradle cache, R8/ProGuard, parallel builds, modularization<br><br>
+                <strong>Monitoring:</strong> Firebase Performance, custom metrics, crash reporting
+            </div>
+            
+            <div class="section">
+                <h2>Technical Leadership</h2>
+                <h3>Staff Engineer Responsibilities</h3>
+                • <strong>Architecture:</strong> Define patterns, tools, systems<br>
+                • <strong>Mentorship:</strong> Code reviews, tech talks, pair programming<br>
+                • <strong>Quality:</strong> Best practices, testing, CI/CD<br>
+                • <strong>Impact:</strong> Force multiplier - good abstraction &gt; 10 fixes<br>
+                
+                <h3>Code Review Best Practices</h3>
+                • Constructive feedback, explain "why"<br>
+                • Share learning resources<br>
+                • Focus on architecture, not syntax<br>
+                • Encourage discussion<br>
+                
+                <h3>Documentation</h3>
+                ADRs, coding guidelines, API docs, onboarding guides
+            </div>
+            
+            <div class="section">
+                <h2>Interview Tips</h2>
+                <h3>Technical Questions</h3>
+                Think aloud, ask clarifying questions, explain trade-offs, mention alternatives<br>
+                
+                <h3>STAR Method (Behavioral)</h3>
+                <strong>S</strong>ituation → <strong>T</strong>ask → <strong>A</strong>ction → <strong>R</strong>esult<br>
+                
+                <h3>Good Questions to Ask</h3>
+                • "What's the biggest technical challenge?"<br>
+                • "How balance velocity with quality?"<br>
+                • "Success in first 6 months?"<br>
+                • "How handle technical debt?"<br>
+                • "Testing strategy and CI/CD setup?"<br>
+                
+                <h3>Red Flags to Avoid</h3>
+                • "I don't know" without reasoning<br>
+                • Criticizing employers/teammates<br>
+                • Being dogmatic about tech<br>
+                • Not asking questions<br>
+                • Making things up when unsure
+            </div>
+            
+            <div class="section">
+                <h2>Quick Reference</h2>
+                <strong>Design Patterns:</strong> Singleton, Factory, Observer, Strategy, Repository<br><br>
+                <strong>Testing:</strong> Unit (MockK, JUnit), Integration, UI (Espresso, Compose), Screenshot (Paparazzi)<br><br>
+                <strong>CI/CD:</strong> Gradle, GitHub Actions, GitLab CI, Bitrise, Fastlane, Detekt/Lint
+            </div>
+        </div>
+    </div>
+</body>
+</html>
