@@ -33,7 +33,7 @@
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+  <meta name="apple-mobile-web-app-title" content="Benjamin Gonin">
   <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
 
   <!-- Tile icon for Win8 (144x144 + tile color) -->
@@ -50,13 +50,10 @@
   <!-- Preconnect to external resources for better performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.grey-orange.min.css">
   <link rel="stylesheet" href="styles.css">
 
   <!-- Google Analytics - GA4 -->
@@ -74,41 +71,51 @@
   <!-- Skip to main content link for accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
-    <main class="mdl-layout__content" id="main-content" role="main">
-      <div id="content">
+  <main id="main-content" role="main">
+    <div id="content">
 
-        <h1>404</h1>
-        <p class="subtitle">Oops! Page Not Found</p>
+      <h1>404</h1>
+      <p class="subtitle">Oops! Page Not Found</p>
 
-        <div style="text-align: center; margin: 40px;">
-          <p style="color: white; font-size: 1.1em; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px;">
-            The page you're looking for doesn't exist or has been moved.
-          </p>
+      <div style="text-align: center; margin: 40px;">
+        <p style="color: white; font-size: 1.1em; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px;">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
 
-          <nav aria-label="Navigation options">
-            <ul class="list-inline">
-              <li><a href="/" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent"
-                  aria-label="Return to homepage"><i class="material-icons" aria-hidden="true">home</i> Go Home</a></li>
-              <li><a href="cv.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--accent"
-                  aria-label="View CV"><i class="material-icons" aria-hidden="true">description</i> CV</a></li>
-            </ul>
-          </nav>
-        </div>
-
+        <nav aria-label="Navigation options">
+          <ul class="list-inline">
+            <li><a href="/" class="btn" aria-label="Return to homepage"><i class="material-icons"
+                  aria-hidden="true">home</i> Go Home</a></li>
+            <li><a href="cv.html" class="btn" aria-label="View CV"><i class="material-icons"
+                  aria-hidden="true">description</i> CV</a></li>
+          </ul>
+        </nav>
       </div>
-      <a href="mailto:begonin@gmail.com" aria-label="Send email">
-        <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" id="contact"
-          aria-label="Contact via email">
-          <i class="material-icons mdl-color-text--white" role="presentation" aria-hidden="true">message</i>
-          <span class="visuallyhidden">Send message</span>
-        </button>
-      </a>
-    </main>
-  </div>
 
-  <!-- Material Design Lite JavaScript -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
+    </div>
+    <a href="mailto:begonin@gmail.com" aria-label="Send email">
+      <button class="btn btn-fab" id="contact" aria-label="Contact via email">
+        <i class="material-icons" role="presentation" aria-hidden="true">message</i>
+      </button>
+    </a>
+  </main>
+
+  <!-- Ripple Effect Script -->
+  <script>
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', function (e) {
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        this.appendChild(ripple);
+        ripple.addEventListener('animationend', () => ripple.remove());
+      });
+    });
+  </script>
 </body>
 
 </html>

@@ -1,66 +1,164 @@
+/* CSS Custom Properties */
+:root {
+  --accent-color: #FFA138;
+  --accent-color-dark: #E88B1C;
+  --accent-color-light: #FFB75E;
+  --text-on-accent: #ffffff;
+  --ripple-color: rgba(255, 255, 255, 0.4);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.4);
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+}
+
+/* Material-inspired Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: var(--text-on-accent);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-fast),
+    box-shadow var(--transition-normal),
+    transform var(--transition-normal);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--accent-color-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn .material-icons {
+  font-size: 18px;
+}
+
+/* Floating Action Button */
+.btn-fab {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-fab:hover,
+.btn-fab:focus {
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.1);
+}
+
+.btn-fab .material-icons {
+  font-size: 24px;
+}
+
+/* Ripple Effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--ripple-color);
+  transform: scale(0);
+  animation: ripple-animation 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
 /* Accessibility - Skip to main content link */
+
 .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: #FFA138;
-    color: white;
-    padding: 8px;
-    text-decoration: none;
-    z-index: 100;
-    font-weight: bold;
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #FFA138;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+  font-weight: bold;
 }
 
 .skip-link:focus {
-    top: 0;
+  top: 0;
 }
 
 /* Base styles */
 body::before {
-    background-size: cover;
-    background-attachment: fixed;
-    content: '';
-    will-change: transform;
-    z-index: -1;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    position: fixed;
-    font-family: 'Roboto';
-    background-color: #C4C4C4;
+  background-size: cover;
+  background-attachment: fixed;
+  content: '';
+  will-change: transform;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  position: fixed;
+  font-family: 'Roboto';
+  background-color: #C4C4C4;
 }
 
-/* Responsive background images */@media (max-width: 512px)  and (-webkit-min-device-pixel-ratio: 1.5),
-       (max-width: 512px)  and (min-resolution: 1.5dppx),
-       (max-width: 1024px) and (-webkit-max-device-pixel-ratio: 1.5),
-       (max-width: 1024px) and (max-resolution: 1.5dppx) {
+/* Responsive background images */
+@media (max-width: 512px) and (-webkit-min-device-pixel-ratio: 1.5),
+(max-width: 512px) and (min-resolution: 1.5dppx),
+(max-width: 1024px) and (-webkit-max-device-pixel-ratio: 1.5),
+(max-width: 1024px) and (max-resolution: 1.5dppx) {
   body::before {
     background-image: url('images/bg_nb_1024.jpg');
   }
 }
-@media (min-width: 513px)  and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5),
-       (min-width: 513px)  and (max-width: 1024px) and (min-resolution: 1.5dppx),
-       (min-width: 1025px) and (max-width: 2048px) and (-webkit-max-device-pixel-ratio: 1.5),
-       (min-width: 1025px) and (max-width: 2048px) and (max-resolution: 1.5dppx)  {
+
+@media (min-width: 513px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5),
+(min-width: 513px) and (max-width: 1024px) and (min-resolution: 1.5dppx),
+(min-width: 1025px) and (max-width: 2048px) and (-webkit-max-device-pixel-ratio: 1.5),
+(min-width: 1025px) and (max-width: 2048px) and (max-resolution: 1.5dppx) {
   body::before {
     background-image: url('images/bg_nb_2048.jpg');
   }
 }
+
 @media (min-width: 1025px) and (-webkit-min-device-pixel-ratio: 1.5),
-       (min-width: 1025px) and (min-resolution: 1.5dppx),
-       (min-width: 2049px) and (-webkit-max-device-pixel-ratio: 1.5),
-       (min-width: 2049px) and (max-resolution: 1.5dppx) {
+(min-width: 1025px) and (min-resolution: 1.5dppx),
+(min-width: 2049px) and (-webkit-max-device-pixel-ratio: 1.5),
+(min-width: 2049px) and (max-resolution: 1.5dppx) {
   body::before {
     background-image: url('images/bg_nb_2880.jpg');
   }
 }
 
 h1 {
+  font-size: 3.5rem;
   letter-spacing: 12px;
   margin: 0 0 0 4px;
   color: white;
-  font-family: inherit;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   line-height: 1.2;
   margin: 40px 40px 10px 40px;
@@ -69,6 +167,7 @@ h1 {
 
 .subtitle {
   color: white;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.2em;
   margin: 0 40px 30px 40px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -138,22 +237,22 @@ h1 {
     letter-spacing: 8px;
     margin: 20px 20px 10px 20px;
   }
-  
+
   .subtitle {
     font-size: 1em;
     margin: 0 20px 20px 20px;
   }
-  
+
   .list-inline li {
     margin-right: 10px;
     margin-bottom: 15px;
   }
-  
+
   #contact {
     margin-right: 20px;
     margin-bottom: 20px;
   }
-  
+
   #content {
     padding: 10px;
   }
@@ -164,11 +263,11 @@ h1 {
     font-size: 1.5em;
     letter-spacing: 4px;
   }
-  
+
   .subtitle {
     font-size: 0.9em;
   }
-  
+
   .list-inline li {
     display: block;
     margin-right: 0;
@@ -187,7 +286,7 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   html {
     scroll-behavior: auto;
   }
