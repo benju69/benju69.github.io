@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Simple Tasks</title>
+  <style>
+    :root {
+      --primary: #4A90D9;
+      --bg: #f9f9fb;
+      --card: #ffffff;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
+    header p  { margin-top: 8px; opacity: 0.85; font-size: 0.95rem; }
+
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .lang-switch button {
+      background: rgba(255,255,255,0.2);
+      border: 2px solid rgba(255,255,255,0.6);
+      color: #fff;
+      padding: 6px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .lang-switch button.active,
+    .lang-switch button:hover {
+      background: rgba(255,255,255,0.35);
+    }
+
+    main {
+      max-width: 780px;
+      margin: 40px auto;
+      padding: 0 20px 60px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card h2 .icon { font-size: 1.2rem; }
+
+    .card p { color: #374151; margin-bottom: 10px; }
+    .card p:last-child { margin-bottom: 0; }
+
+    .card ul {
+      list-style: none;
+      margin: 8px 0;
+      padding: 0;
+    }
+
+    .card ul li {
+      padding: 4px 0 4px 20px;
+      position: relative;
+      color: #374151;
+    }
+
+    .card ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .highlight {
+      background: #f0fdf4;
+      border-left: 4px solid #22c55e;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-top: 12px;
+      color: #166534;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+      padding-bottom: 40px;
+    }
+
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5rem; }
+      .card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🗒️ Simple Tasks</h1>
+  <p>Privacy Policy &nbsp;·&nbsp; Politique de Confidentialité</p>
+  <div class="lang-switch">
+    <button onclick="switchLang('fr')">🇫🇷 Français</button>
+    <button class="active" onclick="switchLang('en')">🇬🇧 English</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══════════════════════════ FRENCH ═══════════════════════════ -->
+  <div id="fr" class="lang-section">
+
+    <div class="card">
+      <h2><span class="icon">📋</span> Introduction</h2>
+      <p>
+        Bienvenue dans <strong>Simple Tasks</strong>. Cette politique de confidentialité explique
+        comment l'application gère vos informations. Nous accordons une grande importance à votre
+        vie privée et avons conçu cette application en suivant le principe de
+        <em>minimisation des données</em>.
+      </p>
+      <p>
+        <strong>Dernière mise à jour :</strong> 18 mars 2026
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🔒</span> Données collectées <span class="badge">AUCUNE</span></h2>
+      <p>
+        <strong>Simple Tasks ne collecte, ne transmet et ne partage aucune donnée personnelle.</strong>
+      </p>
+      <p>
+        Toutes les informations que vous saisissez dans l'application (tâches, priorités,
+        préférences) sont stockées <strong>uniquement sur votre appareil</strong>, dans une base
+        de données locale sécurisée.
+      </p>
+      <div class="highlight">
+        🛡️ Aucune donnée ne quitte jamais votre téléphone.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📱</span> Stockage local uniquement</h2>
+      <p>L'application utilise les technologies Android suivantes pour stocker vos données :</p>
+      <ul>
+        <li><strong>Room (SQLite)</strong> — pour stocker vos tâches localement.</li>
+        <li><strong>DataStore</strong> — pour mémoriser vos préférences (ex. : mode sombre).</li>
+      </ul>
+      <p>
+        Ces données sont isolées dans le bac à sable (sandbox) de l'application et ne sont
+        accessibles à aucune autre application ni à aucun tiers.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🌐</span> Accès à Internet</h2>
+      <p>
+        <strong>Simple Tasks ne nécessite aucun accès à Internet.</strong> L'application
+        fonctionne entièrement hors ligne. Elle ne se connecte à aucun serveur, ne télécharge
+        aucune donnée et n'envoie aucune information à distance.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">👤</span> Comptes utilisateur</h2>
+      <p>
+        L'application ne requiert aucune création de compte, aucune connexion et n'est associée
+        à aucun service d'authentification.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🤝</span> Partage avec des tiers</h2>
+      <p>
+        Nous ne vendons, ne louons et ne partageons aucune information vous concernant avec
+        des tiers, des annonceurs ou des partenaires commerciaux — simplement parce qu'il n'y a
+        aucune donnée à partager.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🧒</span> Enfants (COPPA)</h2>
+      <p>
+        Simple Tasks ne collecte délibérément aucune donnée personnelle de personnes de moins
+        de 13 ans. L'application est sûre pour tous les groupes d'âge car aucune donnée n'est
+        collectée.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">✏️</span> Modifications de cette politique</h2>
+      <p>
+        Si cette politique venait à être modifiée, la nouvelle version sera publiée sur cette
+        page avec une date de mise à jour révisée. Nous vous encourageons à consulter cette
+        page périodiquement.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">✉️</span> Contact</h2>
+      <p>
+        Pour toute question relative à cette politique de confidentialité, vous pouvez nous
+        contacter à l'adresse suivante :
+      </p>
+      <p>
+        📧 <a href="mailto:begonin@gmail.com" style="color:var(--primary);">begonin@gmail.com</a>
+      </p>
+    </div>
+
+  </div><!-- /fr -->
+
+  <!-- ═══════════════════════════ ENGLISH ═══════════════════════════ -->
+  <div id="en" class="lang-section active">
+
+    <div class="card">
+      <h2><span class="icon">📋</span> Introduction</h2>
+      <p>
+        Welcome to <strong>Simple Tasks</strong>. This Privacy Policy explains how the application
+        handles your information. We care deeply about your privacy and have built this app
+        following the principle of <em>data minimization</em>.
+      </p>
+      <p>
+        <strong>Last updated:</strong> March 18, 2026
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🔒</span> Data Collected <span class="badge">NONE</span></h2>
+      <p>
+        <strong>Simple Tasks does not collect, transmit, or share any personal data.</strong>
+      </p>
+      <p>
+        All information you enter in the app (tasks, priorities, preferences) is stored
+        <strong>exclusively on your device</strong>, in a secure local database.
+      </p>
+      <div class="highlight">
+        🛡️ No data ever leaves your phone.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📱</span> Local Storage Only</h2>
+      <p>The app uses the following Android technologies to store your data:</p>
+      <ul>
+        <li><strong>Room (SQLite)</strong> — to store your tasks locally.</li>
+        <li><strong>DataStore</strong> — to remember your preferences (e.g. dark mode).</li>
+      </ul>
+      <p>
+        This data is sandboxed within the app and is not accessible to any other app or
+        third party.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🌐</span> Internet Access</h2>
+      <p>
+        <strong>Simple Tasks does not require any Internet access.</strong> The app works
+        entirely offline. It does not connect to any server, download any remote data, or
+        send any information over the network.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">👤</span> User Accounts</h2>
+      <p>
+        The app does not require any account creation or login, and is not linked to any
+        authentication service.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🤝</span> Third-Party Sharing</h2>
+      <p>
+        We do not sell, rent, or share any information about you with third parties,
+        advertisers, or business partners — simply because there is no data to share.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🧒</span> Children (COPPA)</h2>
+      <p>
+        Simple Tasks does not knowingly collect personal data from children under 13. The
+        app is safe for all age groups as no data is collected at all.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">✏️</span> Changes to This Policy</h2>
+      <p>
+        If this policy is updated, the new version will be posted on this page with a revised
+        date. We encourage you to review this page periodically.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">✉️</span> Contact</h2>
+      <p>
+        For any questions regarding this Privacy Policy, you may contact us at:
+      </p>
+      <p>
+        📧 <a href="mailto:begonin@gmail.com" style="color:var(--primary);">begonin@gmail.com</a>
+      </p>
+    </div>
+
+  </div><!-- /en -->
+
+</main>
+
+<footer>
+  <p>© 2026 Simple Tasks · Benjamin Gonin · Tous droits réservés / All rights reserved</p>
+</footer>
+
+<script>
+  function switchLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.getElementById(lang).classList.add('active');
+    document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    document.documentElement.lang = lang;
+  }
+</script>
+
+</body>
+</html>
+
