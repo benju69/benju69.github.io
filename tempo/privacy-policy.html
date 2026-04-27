@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tempo – Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1a1a1a;
+      --accent: #1d6fa4;
+      --muted: #666666;
+      --border: #e0e0e0;
+      --card-bg: #f8f8f8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --fg: #e8e8e8;
+        --accent: #64b5f6;
+        --muted: #9e9e9e;
+        --border: #333333;
+        --card-bg: #1e1e1e;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 3rem; }
+    header .icon { font-size: 3rem; display: block; margin-bottom: 0.5rem; }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .subtitle { color: var(--muted); font-size: 0.95rem; }
+    .effective-date {
+      display: inline-block;
+      margin-top: 0.75rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    section { margin-bottom: 2.25rem; }
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    p { margin-bottom: 0.8rem; }
+    ul { padding-left: 1.4rem; margin-bottom: 0.8rem; }
+    li { margin-bottom: 0.35rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .highlight-box {
+      background: var(--card-bg);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 1rem 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="icon">⏱</span>
+      <h1>Tempo – Privacy Policy</h1>
+      <p class="subtitle">Atomic-clock precision. Zero data collection.</p>
+      <span class="effective-date">Effective date: 1 April 2025</span>
+    </header>
+
+    <section>
+      <div class="highlight-box">
+        <strong>Short version:</strong> Tempo does not collect, store, or share any personal
+        data. The only network traffic the app generates is outbound UDP packets to the NTP
+        server you choose, used solely to synchronise the displayed time.
+      </div>
+    </section>
+
+    <section>
+      <h2>1. Information We Collect</h2>
+      <p>
+        Tempo does <strong>not</strong> collect any personally identifiable information (PII),
+        analytics, crash reports, or usage data of any kind. No account or sign-in is
+        required to use the app.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Network Usage</h2>
+      <p>
+        Tempo contacts a Network Time Protocol (NTP) server at the interval you configure
+        (default: every 30 seconds). The sole purpose of this request is to obtain the
+        current UTC time so the clock display can be corrected for any local drift.
+      </p>
+      <p>The default NTP server is <code>pool.ntp.org</code>. You may change this at any
+        time in Settings. Other available presets include servers operated by Cloudflare,
+        Google, Apple, Microsoft, NIST, and others. The request contains only a standard
+        NTP v4 packet; no device identifier, user data, or app state is included.</p>
+    </section>
+
+    <section>
+      <h2>3. Data Storage</h2>
+      <p>
+        All user preferences (NTP server, sync interval, theme, dial colour, lume colour)
+        are stored exclusively on your device using the operating system's standard
+        preference or settings storage. This data never leaves your device.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Third-Party Services</h2>
+      <p>
+        Tempo does not integrate any third-party analytics, advertising, tracking, or
+        crash-reporting SDKs. The app has no dependency on any external service other than
+        the NTP server you explicitly choose in Settings.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Permissions</h2>
+      <p>
+        On Android, Tempo requests the following permissions:
+      </p>
+      <ul>
+        <li><strong>INTERNET</strong> – required to reach the NTP server over UDP port 123.</li>
+      </ul>
+      <p>No other permissions are requested. The app does not access contacts, camera,
+        microphone, location, files, or any other sensitive device resource.</p>
+    </section>
+
+    <section>
+      <h2>6. Children's Privacy</h2>
+      <p>
+        Tempo is suitable for all ages. Because we collect no personal data whatsoever,
+        the app complies with children's privacy regulations such as COPPA (US) and
+        applicable regional equivalents.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Changes to This Policy</h2>
+      <p>
+        If we update this privacy policy, the new version will be published at the same URL
+        and the effective date above will be updated. We encourage you to review this page
+        periodically. Continued use of the app after any change constitutes acceptance of
+        the revised policy.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Contact</h2>
+      <p>
+        If you have questions or concerns about this privacy policy, please open an issue on
+        our public repository:
+        <a href="https://github.com/benju69/Tempo/issues" target="_blank" rel="noopener noreferrer">
+          github.com/benju69/Tempo/issues
+        </a>
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        &copy; 2025–2026 Tempo &nbsp;·&nbsp;
+        <a href="https://github.com/benju69/Tempo" target="_blank" rel="noopener noreferrer">GitHub</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/benju69/Tempo/issues" target="_blank" rel="noopener noreferrer">Support</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
