@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://www.benju.fr/tasks/privacy-policy.html" />
   <title>Privacy Policy – Simple Tasks</title>
   <style>
     :root {
@@ -152,8 +153,8 @@
   <h1>🗒️ Simple Tasks</h1>
   <p>Privacy Policy &nbsp;·&nbsp; Politique de Confidentialité</p>
   <div class="lang-switch">
-    <button onclick="switchLang('fr')">🇫🇷 Français</button>
-    <button class="active" onclick="switchLang('en')">🇬🇧 English</button>
+    <button onclick="switchLang('fr', this)">🇫🇷 Français</button>
+    <button class="active" onclick="switchLang('en', this)">🇬🇧 English</button>
   </div>
 </header>
 
@@ -362,15 +363,14 @@
 </footer>
 
 <script>
-  function switchLang(lang) {
+  function switchLang(lang, button) {
     document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
     document.getElementById(lang).classList.add('active');
     document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    button.classList.add('active');
     document.documentElement.lang = lang;
   }
 </script>
 
 </body>
 </html>
-

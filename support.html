@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="theme-color" content="#FFA138">
     <meta name="author" content="Benjamin Gonin">
+    <link rel="canonical" href="https://www.benju.fr/support.html">
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
@@ -16,7 +17,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.grey-orange.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.grey-orange.min.css" integrity="sha384-XdzqI07L7yrHwYExdlg+WrSbC/jBMpUI21f0iSksulGCj5Xsdyym9Cb4n/yi9J09" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 
     <style>
@@ -79,6 +80,16 @@
         text-decoration: none;
       }
 
+      .ko-fi-button {
+        background-color: #FFA138;
+        color: #1f1f1f;
+      }
+
+      .ko-fi-button:hover,
+      .ko-fi-button:focus {
+        background-color: #ffb45f;
+      }
+
       .paypal-button svg {
         width: 20px;
         height: 20px;
@@ -133,8 +144,9 @@
             <!-- Ko-fi widget -->
             <div class="support-section">
               <h3>☕ Buy me a coffee on Ko-fi</h3>
-              <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-              <script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#FFA138', 'benjamingonin');kofiwidget2.draw();</script>
+              <a href="https://ko-fi.com/benjamingonin" target="_blank" rel="noopener noreferrer" class="paypal-button ko-fi-button" aria-label="Support me on Ko-fi">
+                Support me on Ko-fi
+              </a>
             </div>
 
             <!-- PayPal button -->
@@ -153,6 +165,6 @@
       </main>
     </div>
 
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js" integrity="sha384-KxJ0gpu9LJdUtdV6oe5/l3PSF37awRaWGFhnKt8hq6vS3/Wlzy1YPuJzIwg/ljkW" crossorigin="anonymous"></script>
   </body>
 </html>

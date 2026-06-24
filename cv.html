@@ -8,13 +8,14 @@
         content="CV de Benjamin GONIN - Ingénieur Android Senior spécialisé en Kotlin & Compose. Plus de 10 ans d'expérience en développement mobile.">
     <meta name="author" content="Benjamin Gonin">
     <meta name="keywords" content="CV, Benjamin Gonin, Android Developer, Kotlin, Jetpack Compose, Ingénieur Android">
+    <link rel="canonical" href="https://www.benju.fr/cv.html">
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="profile">
-    <meta property="og:url" content="https://benju.fr/cv.html">
+    <meta property="og:url" content="https://www.benju.fr/cv.html">
     <meta property="og:title" content="CV Benjamin GONIN - Ingénieur Android Senior">
     <meta property="og:description" content="Expert Android avec 10+ ans d'expérience en développement Kotlin/Compose">
-    <meta property="og:image" content="https://benju.fr/images/avatar.png">
+    <meta property="og:image" content="https://www.benju.fr/images/avatar.png">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -242,6 +243,18 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .header {
+                padding: 28px 24px 32px;
+            }
+
             .header h1 {
                 font-size: 1.8em;
             }
@@ -252,6 +265,10 @@
 
             .content {
                 padding: 25px;
+            }
+
+            .about {
+                text-align: left;
             }
 
             .experience-header {
@@ -281,6 +298,10 @@
             font-size: 0.9em;
             font-weight: 600;
             cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            color-scheme: light;
+            forced-color-adjust: none;
             transition: all 0.3s;
             box-shadow: 0 2px 10px var(--shadow);
         }
@@ -301,6 +322,10 @@
             font-size: 0.9em;
             font-weight: 600;
             cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            color-scheme: light;
+            forced-color-adjust: none;
             transition: all 0.3s;
             box-shadow: 0 2px 10px var(--shadow);
         }
@@ -310,6 +335,21 @@
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        body.dark-mode .toggle-button,
+        body.dark-mode .language-button {
+            background: #3a3a3a;
+            color: #c7d0ff;
+            border-color: #8c9bff;
+        }
+
+        body.dark-mode .toggle-button:hover,
+        body.dark-mode .toggle-button:focus,
+        body.dark-mode .language-button:hover,
+        body.dark-mode .language-button:focus {
+            background: #667eea;
+            color: white;
         }
 
         .hidden {
@@ -324,9 +364,14 @@
 
         @media (max-width: 768px) {
             .language-toggle {
-                top: 10px;
-                right: 10px;
-                flex-direction: column;
+                position: sticky;
+                top: 0;
+                right: auto;
+                justify-content: flex-end;
+                gap: 8px;
+                padding: 10px;
+                background: var(--bg-color);
+                box-shadow: 0 2px 10px var(--shadow);
             }
 
             .toggle-button,
@@ -357,7 +402,7 @@
                 <div class="contact-info">
                     <span>📞 <a href="tel:+33606534550">+33 6 06 53 45 50</a></span>
                     <span>📧 <a href="mailto:begonin@gmail.com">begonin@gmail.com</a></span>
-                    <span>🌐 <a href="https://benju.fr" target="_blank">benju.fr</a></span>
+                    <span>🌐 <a href="https://www.benju.fr" target="_blank" rel="noopener noreferrer">benju.fr</a></span>
                     <span>📍 Villemoisson-sur-Orge (91)</span>
                     <span>🚗 Permis B</span>
                 </div>
@@ -554,7 +599,7 @@
                 <div class="contact-info">
                     <span>📞 <a href="tel:+33606534550">+33 6 06 53 45 50</a></span>
                     <span>📧 <a href="mailto:begonin@gmail.com">begonin@gmail.com</a></span>
-                    <span>🌐 <a href="https://benju.fr" target="_blank">benju.fr</a></span>
+                    <span>🌐 <a href="https://www.benju.fr" target="_blank" rel="noopener noreferrer">benju.fr</a></span>
                     <span>📍 Villemoisson-sur-Orge (91)</span>
                     <span>🚗 Driver's License</span>
                 </div>
