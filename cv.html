@@ -340,10 +340,10 @@
 
 <body>
     <div class="language-toggle">
-        <button class="toggle-button" onclick="toggleDarkMode()" id="dark-mode-button">
-            <span id="dark-mode-icon">🌙</span>
+        <button class="toggle-button" onclick="toggleDarkMode()" id="dark-mode-button" aria-label="Basculer le mode sombre / Toggle dark mode">
+            <span id="dark-mode-icon" aria-hidden="true">🌙</span>
         </button>
-        <button class="language-button" onclick="toggleLanguage()">
+        <button class="language-button" onclick="toggleLanguage()" aria-label="Afficher en anglais / See in English">
             <span id="lang-button-text">See in English</span>
         </button>
     </div>
@@ -764,36 +764,71 @@
         function loadDarkModePreference() {
             const darkMode = localStorage.getItem('darkMode');
             const darkModeIcon = document.getElementById('dark-mode-icon');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-            if (darkMode === 'enabled') {
+            if (darkMode === 'enabled' || (darkMode === null && prefersDark)) {
                 document.body.classList.add('dark-mode');
                 darkModeIcon.textContent = '☀️';
+            } else {
+                document.body.classList.remove('dark-mode');
+                darkModeIcon.textContent = '🌙';
+            }
+        }
+
+        // Apply language view
+        function applyLanguage(lang) {
+            const frContent = document.getElementById('content-fr');
+            const enContent = document.getElementById('content-en');
+            const buttonText = document.getElementById('lang-button-text');
+            const langButton = document.querySelector('.language-button');
+
+            if (lang === 'fr') {
+                frContent.classList.remove('hidden');
+                enContent.classList.add('hidden');
+                buttonText.textContent = 'See in English';
+                if (langButton) {
+                    langButton.setAttribute('aria-label', 'Afficher le CV en anglais / See CV in English');
+                }
+                document.documentElement.lang = 'fr';
+            } else {
+                frContent.classList.add('hidden');
+                enContent.classList.remove('hidden');
+                buttonText.textContent = 'Voir en français';
+                if (langButton) {
+                    langButton.setAttribute('aria-label', 'Voir le CV en français / See CV in French');
+                }
+                document.documentElement.lang = 'en';
             }
         }
 
         // Language toggle functionality
         function toggleLanguage() {
             const frContent = document.getElementById('content-fr');
-            const enContent = document.getElementById('content-en');
-            const buttonText = document.getElementById('lang-button-text');
+            const currentLang = frContent.classList.contains('hidden') ? 'en' : 'fr';
+            const nextLang = currentLang === 'fr' ? 'en' : 'fr';
+            
+            applyLanguage(nextLang);
+            localStorage.setItem('preferredLang', nextLang);
+        }
 
-            if (frContent.classList.contains('hidden')) {
-                // Currently showing English, switch to French
-                frContent.classList.remove('hidden');
-                enContent.classList.add('hidden');
-                buttonText.textContent = 'See in English';
-                document.documentElement.lang = 'fr';
-            } else {
-                // Currently showing French, switch to English
-                frContent.classList.add('hidden');
-                enContent.classList.remove('hidden');
-                buttonText.textContent = 'Voir en français';
-                document.documentElement.lang = 'en';
+        // Load language preference on page load
+        function loadLanguagePreference() {
+            let lang = localStorage.getItem('preferredLang');
+            
+            if (!lang) {
+                // Auto-detect browser language
+                const browserLang = navigator.language || navigator.userLanguage;
+                lang = (browserLang && browserLang.startsWith('en')) ? 'en' : 'fr';
             }
+            
+            applyLanguage(lang);
         }
 
         // Load preferences on page load
-        window.addEventListener('DOMContentLoaded', loadDarkModePreference);
+        window.addEventListener('DOMContentLoaded', () => {
+            loadDarkModePreference();
+            loadLanguagePreference();
+        });
     </script>
 </body>
 
