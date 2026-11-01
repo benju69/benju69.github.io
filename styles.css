@@ -15,23 +15,38 @@
     top: 0;
 }
 
-/* Base styles */
+/* Base styles - replaces the normalize/reset previously provided by MDL */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 1.4;
+}
+
+main {
+  min-height: 100vh;
+  position: relative;
+}
+
 body::before {
     background-size: cover;
     background-attachment: fixed;
     content: '';
-    will-change: transform;
     z-index: -1;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
     position: fixed;
-    font-family: 'Roboto';
     background-color: #C4C4C4;
 }
 
-/* Responsive background images */@media (max-width: 512px)  and (-webkit-min-device-pixel-ratio: 1.5),
+/* Responsive background images */
+@media (max-width: 512px)  and (-webkit-min-device-pixel-ratio: 1.5),
        (max-width: 512px)  and (min-resolution: 1.5dppx),
        (max-width: 1024px) and (-webkit-max-device-pixel-ratio: 1.5),
        (max-width: 1024px) and (max-resolution: 1.5dppx) {
@@ -81,10 +96,16 @@ h1 {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Icon styling within buttons */
-.list-inline a .material-icons {
-  font-size: 18px;
+/* Inline SVG icons (replaces the Material Icons webfont) */
+.icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
   vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.list-inline .icon {
   margin-right: 4px;
   position: relative;
   top: -1px;
@@ -102,11 +123,32 @@ h1 {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
+/* Buttons - pure CSS replacement for MDL accent buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #FFA138;
+  color: #1f1f1f;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 9px 20px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+}
+
 .list-inline li {
   display: inline-block;
   margin-right: 20px;
   margin-bottom: 30px;
-  z-index: 400;
+}
+
+/* Reset default list margins previously covered by the MDL normalize */
+.list-inline {
+  padding: 0;
+  margin: 0;
 }
 
 /* Better focus visibility for keyboard navigation */
@@ -116,14 +158,50 @@ h1 {
   outline-offset: 3px;
 }
 
+/* Floating action button - pure CSS replacement for MDL fab */
+.fab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #FFA138;
+  color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fab .icon {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
 #contact {
   position: fixed;
-  display: block;
   right: 0;
   bottom: 0;
   margin-right: 40px;
   margin-bottom: 40px;
   z-index: 900;
+}
+
+.fab:hover,
+.fab:focus {
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+}
+
+.fab:focus,
+.btn:focus {
+  outline: 3px solid #FFA138;
+  outline-offset: 3px;
+}
+
+.back-link .icon {
+  width: 18px;
+  height: 18px;
 }
 
 #content {
@@ -271,9 +349,22 @@ h1 {
   color: #FFA138;
 }
 
-.app-cta .material-icons {
-  font-size: 16px;
+.app-cta .icon {
+  width: 16px;
+  height: 16px;
   margin-right: 4px;
+}
+
+/* Accessibility - hide element visually but keep available to screen readers */
+.visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
 }
 
 /* Smooth scrolling */
